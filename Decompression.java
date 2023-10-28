@@ -30,7 +30,8 @@ public class Decompression {
 
     private static List<Tag> parseCompressedData(String compressedData) {
         List<Tag> tags = new ArrayList<>();
-        String[] splittedstr = compressedData.split(" ");
+        String str=compressedData.substring(1,compressedData.length()-1);
+        String[]splittedstr = str.split(", ");
 
         for (String STR : splittedstr) {
             if (STR.startsWith("<") && STR.endsWith(">")) {

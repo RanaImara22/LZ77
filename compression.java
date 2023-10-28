@@ -2,8 +2,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 class compression {
-    public static List<Tag> compress(String input) {
-        List<Tag> compressedData = new ArrayList<>();
+    public static List<String> compress(String input) {
+        List<String> compressedData = new ArrayList<>();
         int inputLength = input.length();
         int currentIndex = 0;
 
@@ -35,7 +35,8 @@ class compression {
                     input.charAt(currentIndex + longestMatchLength) : Tag.END_OF_INPUT;
 
             Tag tag = new Tag(longestMatchPosition, longestMatchLength, nextChar);
-            compressedData.add(tag);
+            String t=tag.toString();
+            compressedData.add(t);
             currentIndex += longestMatchLength + 1;
         }
 

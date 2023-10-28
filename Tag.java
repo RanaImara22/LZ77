@@ -29,6 +29,6 @@ class Tag {
 
     @Override
     public String toString() {
-        return "<" + position + "," + length + "," + nextChar + ">";
+        return "<" + position + "," + length + "," +"\""+ nextChar +"\""+ ">";
     }
 }

@@ -18,12 +18,12 @@ public class Main {
             System.out.println("5. Exit");
             System.out.print("Enter your choice (1/2/3/4/5): ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); 
+            scanner.nextLine();
 
             if (choice == 1) {
                 System.out.print("Enter the text to compress: ");
                 String input = scanner.nextLine();
-                List<Tag> compressedData = compression.compress(input);
+                List<String> compressedData = compression.compress(input);
                 System.out.println("Compressed Data: " + compressedData);
             }  else if (choice == 2) {
                 System.out.print("Enter the compressed data in the form '<position,length,nextChar>': ");
@@ -61,7 +61,7 @@ public class Main {
 
             }
             String strcon=fileContent.toString();
-            List<Tag> compressedData = compression.compress(strcon);
+            List<String> compressedData = compression.compress(strcon);
             String compressedDataStr = compressedData.toString();
 
             writer = new BufferedWriter(new FileWriter(file, false));
