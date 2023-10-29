@@ -36,11 +36,30 @@ public class Decompression {
         for (String STR : splittedstr) {
             if (STR.startsWith("<") && STR.endsWith(">")) {
                 // Extract position, length, and nextChar from the tag
-                String[] parts = STR.substring(1, STR.length() - 1).split(",");
-                if (parts.length == 3) {
-                    int position = Integer.parseInt(parts[0]);
-                    int length = Integer.parseInt(parts[1]);
-                    char nextChar = parts[2].charAt(1); // get the character within double quotes
+                // String[] parts = STR.substring(1, STR.length() - 1).split(",");
+                List<String> parts=new ArrayList<>();
+                int noComma=0;
+                String part="";
+                //<22,3,,>
+                int i=1;
+                while(i<STR.length()-1){
+                    if(STR.charAt(i)==','&&noComma<2){
+                        parts.add(part);
+                        part="";
+                        noComma++;
+                    }else{
+                        part+=STR.charAt(i);               
+                    }
+                    i++;
+
+                }
+                parts.add(part);
+
+
+                if (parts.size() == 3) {
+                    int position = Integer.parseInt(parts.get(0));
+                    int length = Integer.parseInt(parts.get(1));
+                    char nextChar = parts.get(2).charAt(1); // get the character within double quotes
                     tags.add(new Tag(position, length, nextChar));
                 }
             }

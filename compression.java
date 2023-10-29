@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 class compression {
     public static List<String> compress(String input) {
         List<String> compressedData = new ArrayList<>();

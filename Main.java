@@ -78,7 +78,7 @@ public class Main {
 
 private static void decompressToFile() {
     try {
-        File file = new File("C:\\testjava\\java.txt");
+        File file = new File("java.txt");
 
         BufferedReader reader = new BufferedReader(new FileReader(file));
         BufferedWriter writer = new BufferedWriter(new FileWriter(file,true));
