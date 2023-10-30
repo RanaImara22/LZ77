@@ -20,7 +20,7 @@ class compression {
                 }
 
                 int currentMatchPosition = currentIndex  - lastOccurrenceIndex;
-                 int currentMatchLength = currentSubstring.length();
+                int currentMatchLength = currentSubstring.length();
 
                 if (currentMatchLength > longestMatchLength) {
                     longestMatchPosition = currentMatchPosition;
@@ -70,7 +70,7 @@ class compression {
 
 // Vector<LZ77Tag> v = new Vector<>();
 //         int curr = 0;
-
+        //ABC|DABCD
 //         while (curr < data.length()) {
 //             int position = 0;
 //             int maxLength = 0;
@@ -79,7 +79,7 @@ class compression {
 //             {
 //                 int length = 0;
 
-//                 while (curr + length < data.length() && length < BUFFER_SIZE && curr + length - i < curr
+//                 while (curr + length < data.length() && length < BUFFER_SIZE && curr + length - i < curr+length
 //                         && data.charAt(curr + length) == data.charAt(curr + length - i))
 //                 {
 //                     length++;
