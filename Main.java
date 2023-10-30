@@ -48,10 +48,10 @@ public class Main {
     private static void compressFromFile() {
 
         try {
-            File file = new File("C:\\testjava\\java.txt");
+            File file = new File("java.txt");
 
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true)); // Append mode
+            BufferedWriter writer = new BufferedWriter(new FileWriter(file, true)); 
 
             String line;
             StringBuilder fileContent = new StringBuilder();
@@ -73,6 +73,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        
 
     }
 
@@ -92,7 +93,6 @@ private static void decompressToFile() {
         }
         String strcon=fileContent.toString();
         String decompressedData = Decompression.decompress(strcon);
-//            String compressedDataStr = compressedData.toString();
 
         writer = new BufferedWriter(new FileWriter(file, false));
         writer.write(decompressedData);

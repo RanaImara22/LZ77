@@ -13,7 +13,7 @@ class compression {
             for (int lookAhead = 1; currentIndex + lookAhead <= inputLength && lookAhead <= Tag.MAX_LENGTH; lookAhead++) {
                 String currentSubstring = input.substring(currentIndex, currentIndex + lookAhead);
 
-                int lastOccurrenceIndex = input.lastIndexOf(currentSubstring, currentIndex - 1);//stores the index of the last occurrence of the currentSubstring
+                int lastOccurrenceIndex = input.lastIndexOf(currentSubstring, currentIndex - 1);
 
                 if (lastOccurrenceIndex == -1) {
                     break;

@@ -1,19 +1,23 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 public class Decompression {
     public static String decompress(String compressedData) {
         List<Tag> tags = parseCompressedData(compressedData);
         StringBuilder decompressed = new StringBuilder();
-
         for (Tag tag : tags) {
+            //<0,0,A>
             if (tag.getPosition() == 0) {
                 decompressed.append(tag.getNextChar());
+            //ABCDE|ABL
+            //<5,2,L>
             } else {
+                //start=0
                 int start = decompressed.length() - tag.getPosition();
+                //end=2
                 int end = start + tag.getLength();
 
                 for (int i = start; i < end; i++) {
+                    //ABCDEAB
                     decompressed.append(decompressed.charAt(i));
                 }
 
@@ -35,8 +39,7 @@ public class Decompression {
 
         for (String STR : splittedstr) {
             if (STR.startsWith("<") && STR.endsWith(">")) {
-                // Extract position, length, and nextChar from the tag
-                // String[] parts = STR.substring(1, STR.length() - 1).split(",");
+
                 List<String> parts=new ArrayList<>();
                 int noComma=0;
                 String part="";
@@ -59,7 +62,7 @@ public class Decompression {
                 if (parts.size() == 3) {
                     int position = Integer.parseInt(parts.get(0));
                     int length = Integer.parseInt(parts.get(1));
-                    char nextChar = parts.get(2).charAt(1); // get the character within double quotes
+                    char nextChar = parts.get(2).charAt(1);
                     tags.add(new Tag(position, length, nextChar));
                 }
             }
